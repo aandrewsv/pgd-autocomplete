@@ -1,0 +1,233 @@
+/* Base Styles
+----------------------------------------*/
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Input Styles
+----------------------------------------*/
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.autocomplete-input {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.autocomplete-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Dropdown List
+----------------------------------------*/
+.autocomplete-list {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border: 1px solid #e2e8f0;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f7fafc;
+}
+
+/* Scrollbar Styles
+----------------------------------------*/
+.autocomplete-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.autocomplete-list::-webkit-scrollbar-track {
+  background: #f7fafc;
+  border-radius: 0 12px 12px 0;
+}
+
+.autocomplete-list::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 20px;
+  border: 2px solid #f7fafc;
+}
+
+/* Item Styles
+----------------------------------------*/
+.autocomplete-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.autocomplete-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background: #f0f0f0;
+}
+
+.autocomplete-item:last-child::after {
+  display: none;
+}
+
+/* Active & Hover States
+----------------------------------------*/
+.autocomplete-item:hover {
+  background-color: #f8fafc;
+}
+
+.autocomplete-item.active {
+  background-color: #f0f7ff;
+  border-left-color: #4a90e2;
+}
+
+.autocomplete-item.active .autocomplete-item-name {
+  color: #2b6cb0;
+}
+
+.autocomplete-item.active::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #4a90e2;
+  transition: transform 0.2s ease;
+}
+
+/* Image Styles
+----------------------------------------*/
+.autocomplete-item img {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: contain;
+  background-color: #f7f9fc;
+  padding: 4px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.autocomplete-item.active img {
+  border-color: #4a90e2;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
+}
+
+/* Text Content Styles
+----------------------------------------*/
+.autocomplete-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.autocomplete-item-name {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #2d3748;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+
+.autocomplete-item-race {
+  font-size: 0.9rem;
+  color: #718096;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.autocomplete-item-race::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #4a90e2;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+/* Selected State
+----------------------------------------*/
+.selected-indicator {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.selected-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: contain;
+  background-color: #f7f9fc;
+  padding: 2px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Highlight Text
+----------------------------------------*/
+.highlight {
+  background-color: #ebf5ff;
+  color: #2b6cb0;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: -0.1rem 0;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.autocomplete-item.active .highlight {
+  background-color: #bfdbfe;
+}
+
+/* Status Messages
+----------------------------------------*/
+.loading {
+  text-align: center;
+  padding: 1rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.error {
+  color: #e53e3e;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  background-color: #fff5f5;
+  border-radius: 8px;
+  margin: 0.5rem;
+}
