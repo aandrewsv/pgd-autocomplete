@@ -54,7 +54,7 @@ A high-performance, accessible autocomplete component built with React and TypeS
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/aandrewsv/pgd-autocomplete
 ```
 
 2. Navigate to the project directory:
