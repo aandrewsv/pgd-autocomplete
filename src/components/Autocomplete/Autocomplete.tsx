@@ -59,7 +59,7 @@ const Autocomplete = () => {
       }
     });
 
-    // Verificar caché
+    // Verify cache
     const cachedResult = searchCache.current.get(normalizedQuery);
     if (cachedResult && now - cachedResult.timestamp < CACHE_DURATION) {
       setSuggestions(cachedResult.data);
@@ -72,7 +72,7 @@ const Autocomplete = () => {
       setError('');
       const results = await searchCharacters(searchQuery);
       
-      // Guardar en caché
+      // Save in cache
       searchCache.current.set(normalizedQuery, {
         timestamp: now,
         data: results
@@ -82,7 +82,7 @@ const Autocomplete = () => {
       setIsOpen(true);
     } catch (error) {
       console.error('Error searching characters:', error);
-      setError('Error al buscar personajes');
+      setError('Error searching characters');
       setSuggestions([]);
     } finally {
       setLoading(false);
@@ -195,8 +195,8 @@ const Autocomplete = () => {
           onChange={handleInputChange}
           onClick={handleInputClick}
           onKeyDown={handleKeyDown}
-          placeholder="Buscar personaje de Dragon Ball..."
-          aria-label="Buscar personaje"
+          placeholder="Search Dragon Ball character..."
+          aria-label="Search character"
           aria-autocomplete="list"
           aria-controls={isOpen ? "autocomplete-list" : undefined}
           aria-activedescendant={activeIndex >= 0 ? `character-${suggestions[activeIndex]?.id}` : undefined}
@@ -221,7 +221,7 @@ const Autocomplete = () => {
           role="listbox"
           aria-label="Sugerencias de personajes"
         >
-          {loading && <div className="loading">Buscando...</div>}
+          {loading && <div className="loading">Searching...</div>}
           
           {error && <div className="error" role="alert">{error}</div>}
           
