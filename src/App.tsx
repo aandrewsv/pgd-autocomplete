@@ -79,7 +79,7 @@ function App() {
       return;
     }
 
-    // Filtro el tablero buscando espacios sin usar, si hay más de 0 espacios en blanco quiere decir que quedan movimientos
+    // Filtro el tablero usando método some, si hay al menos un "" quiere decir que hay movimientos, devolviendo verdadero
     const quedanMovimientos: boolean = tablero.some(celda => celda === "");
     // Si no quedan movimientos terminamos el juego
     if (!quedanMovimientos) {
