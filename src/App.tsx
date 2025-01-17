@@ -27,7 +27,6 @@ function App() {
     if (juegoTerminado || tablero[parseInt(e.target.id)] !== "") {
       return;
     }
-    setJugadorActual(jugadorActual === "O" ? "X" : "O");
     // Obtenga la coordenada desde el id del elemento (e.target.id)
     const coordenada = parseInt(e.target.id)
     // Copio el tablero actual
@@ -53,7 +52,7 @@ function App() {
       }
 
       // Revisa las filas
-      for(let i=0; i<= 6; i++) {
+      for(let i=0; i<= 6; i+=3) {
         if (tablero[i] !== "" && tablero[i] === tablero[i+1] && tablero[i] === tablero[i+2]) {
           return true
         }
